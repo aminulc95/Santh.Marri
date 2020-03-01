@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-
 public class TestFile extends Base {
 
     public void goToWebsite(){
@@ -45,8 +44,5 @@ public class TestFile extends Base {
 //        VerifyingLogin(AbletoLogin);
 //        //@AfterMethod from BASE page
 //    }
-
-
-
 }
 

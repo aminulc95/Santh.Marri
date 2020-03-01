@@ -24,11 +24,9 @@ public class UserLogin {
         JavaCode.clickSubmit();
         JavaCode.VerifyingLogin(false);
     }
-
 //    @Test
 //    public void TesingLoginForAllUser(){
 //        LoginTestMaster("standard_user", true);
 //        LoginTestMaster("locked_out_user", false);
 //    }
-
 }

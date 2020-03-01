@@ -36,6 +36,15 @@ public class TestFile extends Base {
             System.out.println("Login did not happen");
         }
     }
+//public void LoginTestMaster(String Username, boolean AbletoLogin){
+//        //@BeforeMethod from BASE page
+//        goToWebsite();
+//        enterUsername(Username);
+//        enterPassword();
+//        clickSubmit();
+//        VerifyingLogin(AbletoLogin);
+//        //@AfterMethod from BASE page
+//    }
 
 
 

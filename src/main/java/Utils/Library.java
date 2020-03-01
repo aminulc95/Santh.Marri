@@ -4,6 +4,7 @@ import com.google.common.io.Files;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -30,8 +31,33 @@ public class Library {
 	//------------------------------------------------------------------------------------------------
 	public WebDriver startChromeBrowser() {
 		try {
-			System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
 			driver = new ChromeDriver();
+			logger.info("Chrome browser started");
+			driver.manage().window().maximize();
+			driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		} catch (Exception e) {
+			logger.error("Error: ", e);
+			assertTrue(false);
+			//System.out.println("Error: " + e.getStackTrace());
+		}
+		return driver;
+	}
+	//------------------------------------------------------------------------------------------------
+	public WebDriver startHeadlessChromeBrowser() {
+		try {
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("enable-automation");
+			options.addArguments("--headless");
+			options.addArguments("--window-size=1920,1080");
+			options.addArguments("--no-sandbox");
+			options.addArguments("--disable-extensions");
+			options.addArguments("--dns-prefetch-disable");
+			options.addArguments("--disable-gpu");
+			options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+			System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+			driver = new ChromeDriver(options);
 			logger.info("Chrome browser started");
 			driver.manage().window().maximize();
 			driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
@@ -46,7 +72,7 @@ public class Library {
 	//------------------------------------------------------------------------------------------------
 	public WebDriver startFirefoxBrowser() {
 		try {
-			System.setProperty("webdriver.gecko.driver", "src/test/resources/geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver", "src/main/resources/geckodriver.exe");
 			driver = new FirefoxDriver();
 			driver.manage().window().maximize();
 			driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
@@ -61,7 +87,7 @@ public class Library {
 	//------------------------------------------------------------------------------------------------
 	public WebDriver startIEBrowser() {
 		try {
-			System.setProperty("webdriver.ie.driver", "src/test/resources/IEDriverServer.exe");
+			System.setProperty("webdriver.ie.driver", "src/main/resources/IEDriverServer.exe");
 			driver = new InternetExplorerDriver();
 			driver.manage().window().maximize();
 			driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);

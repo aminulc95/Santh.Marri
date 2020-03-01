@@ -17,6 +17,7 @@ public class Base {
 	public void beforeEachTest() {
 		myLib = new Library(driver);	
 		driver = myLib.startChromeBrowser();
+		//driver = myLib.startHeadlessChromeBrowser();
 		//driver = myLib.startFirefoxBrowser();
 		//driver = myLib.startIEBrowser();	
 

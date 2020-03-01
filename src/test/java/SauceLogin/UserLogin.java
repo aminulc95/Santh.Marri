@@ -1,9 +1,10 @@
 package SauceLogin;
 
 import Pages.TestFile;
+import Utils.Base;
 import org.testng.annotations.Test;
 
-public class UserLogin {
+public class UserLogin extends Base {
 
     TestFile JavaCode = new TestFile();
 

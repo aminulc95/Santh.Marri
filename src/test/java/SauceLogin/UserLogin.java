@@ -25,20 +25,9 @@ public class UserLogin extends Base {
         JavaCode.clickSubmit();
         JavaCode.VerifyingLogin(false);
     }
-
 //    @Test
 //    public void TesingLoginForAllUser(){
 //        LoginTestMaster("standard_user", true);
 //        LoginTestMaster("locked_out_user", false);
 //    }
-//public void LoginTestMaster(String Username, boolean AbletoLogin){
-//        //@BeforeMethod from BASE page
-//        goToWebsite();
-//        enterUsername(Username);
-//        enterPassword();
-//        clickSubmit();
-//        VerifyingLogin(AbletoLogin);
-//        //@AfterMethod from BASE page
-//    }
-
 }
